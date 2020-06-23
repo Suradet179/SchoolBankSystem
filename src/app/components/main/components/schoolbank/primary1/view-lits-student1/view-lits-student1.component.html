@@ -1,0 +1,80 @@
+
+
+<div class="content-wrapper" >
+    <section class="content">
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-8">
+                <div class="box box-info">
+
+                    <h3 class="box-title"><b><p class="text-info">&nbsp;&nbsp;&nbsp;&nbsp;รายชื่อนักเรียน ประถมศึกษาปีที่ 1</p></b></h3>
+                        <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th style="width: 50px;"><p class="text-info"><b>ลำดับ</b></p></th>  
+                                    <th style="width: 100px;"><p class="text-info"><b>รหัสนักเรียน</b></p></th>  
+                                    <th style="width: 100px;"><p class="text-info"><b>คำนำหน้า</b></p></th>
+                                    <th style="width: 200px;"><p class="text-info"><b>ชื่อ</b></p></th>
+                                    <th style="width: 200px;"><p class="text-info"><b>ยอดเงินคงเหลือ</b></p></th>
+
+                                   
+                                 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let student of dataStudent; index as i'>  
+                                    <td>{{i+1}}</td>
+                                    <td>{{student.StudentData.sid}}</td>
+                                    <td>{{student.StudentData.prefix}}</td>   
+                                    <td>{{student.StudentData.fname}}&nbsp;&nbsp;&nbsp;&nbsp;{{student.StudentData.lname}}</td>
+                                    <td>{{student.StudentData.money}}</td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>   
+
+
+
+
+ 
+
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

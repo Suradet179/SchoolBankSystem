@@ -1,0 +1,251 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="row">
+      <div class="col-md-1"></div>
+
+      <div class="col-md-8">
+        <div class="box box-info">
+          <h3 class="box-title">
+            <b><p class="text-info">&nbsp;&nbsp;&nbsp;&nbsp;ยอดเงินรวม</p></b>
+          </h3>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th style="width: 200px;">
+                  <p class="text-info"><b>รุ่น</b></p>
+                </th>
+                <th style="width: 200px;">
+                  <p class="text-info"><b>ระดับชั้น</b></p>
+                </th>
+                <th style="width: 200px;">
+                  <p class="text-info"><b>ยอดเงินรวม</b></p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let money of dataSummoney">
+                <td>{{ money.SumMoney.generation }}</td>
+                <td>{{ money.SumMoney.primary }}</td>
+                <td>{{ money.SumMoney.total_money }}</td>
+
+                <td style="width: 300px;">
+                  <a
+                    role="button"
+                    class="btn btn-warning text-white"
+                    (click)="editSummoney(money.SumMoney.generation)"
+                    data-toggle="modal"
+                    data-target="#modelEdit"
+                    >แก้ไข</a
+                  >&nbsp;
+                  <a
+                    role="button"
+                    class="btn btn-danger text-white"
+                    (click)="deleteSumoneyyyy(money.SumMoney.generation)"
+                    >ลบ</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <a
+          role="button"
+          class="btn btn-success text-white"
+          data-toggle="modal"
+          data-target="#modelAddSummoney"
+          >เพิ่มที่เก็บเงินรวม</a
+        >
+      </div>
+
+      <!-- <div class="col-md-3">
+              <a role="button" class="btn btn-success text-white" onclick="window.print();">print</a>
+          </div> -->
+    </div>
+  </section>
+</div>
+
+<!---------------------- Modal เพิ่มข้อมูลเงินรวม -------------------------- -->
+<div
+  class="modal fade"
+  id="modelAddSummoney"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modelTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">
+          <b><p class="text-success">เพิ่มที่เก็บเงินรวม</p></b>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <input
+                type="text"
+                class="form-control"
+                id="generation"
+                placeholder="นักเรียนรุ่นที่"
+                name="generation"
+                [(ngModel)]="summoneyAdd.generation"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="form-control">
+                <label>
+                  ระดับชั้น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <select
+                    id="primary"
+                    name="primary"
+                    [(ngModel)]="summoneyAdd.primary"
+                  >
+                    <option value="ประถมศึกษาปีที่ 1">ประถมศึกษาปีที่ 1</option>
+                    <option value="ประถมศึกษาปีที่ 2">ประถมศึกษาปีที่ 2</option>
+                    <option value="ประถมศึกษาปีที่ 3">ประถมศึกษาปีที่ 3</option>
+                    <option value="ประถมศึกษาปีที่ 4">ประถมศึกษาปีที่ 4</option>
+                    <option value="ประถมศึกษาปีที่ 5">ประถมศึกษาปีที่ 5</option>
+                    <option value="ประถมศึกษาปีที่ 6">ประถมศึกษาปีที่ 6</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <input
+                type="hidden"
+                class="form-control"
+                id="total_money"
+                placeholder="ยอดเงินรวม"
+                name="total_money"
+                [(ngModel)]="summoneyAdd.total_money"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div align="center">
+              <button
+                type="submit"
+                class="btn btn-success"
+                (click)="submitAddSummoney()"
+              >
+                บันทึก
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---------------------- Modal แก้ไขข้อมูลนักเรียน -------------------------- -->
+<div
+  class="modal fade"
+  id="modelEdit"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modelTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <h3 class="modal-title">
+          <b><p class="text-warning">แก้ไขข้อมูลเงินรวม</p></b>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <input
+                type="text"
+                class="form-control"
+                id="generation"
+                placeholder="นักเรียนรุ่นที่"
+                name="generation"
+                [(ngModel)]="summoneyEdit.generation"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="form-control">
+                <label>
+                  ระดับชั้น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <select
+                    id="primary"
+                    name="primary"
+                    [(ngModel)]="summoneyEdit.primary"
+                  >
+                    <option value="ประถมศึกษาปีที่ 1">ประถมศึกษาปีที่ 1</option>
+                    <option value="ประถมศึกษาปีที่ 2">ประถมศึกษาปีที่ 2</option>
+                    <option value="ประถมศึกษาปีที่ 3">ประถมศึกษาปีที่ 3</option>
+                    <option value="ประถมศึกษาปีที่ 4">ประถมศึกษาปีที่ 4</option>
+                    <option value="ประถมศึกษาปีที่ 5">ประถมศึกษาปีที่ 5</option>
+                    <option value="ประถมศึกษาปีที่ 6">ประถมศึกษาปีที่ 6</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <input
+                type="text"
+                class="form-control"
+                id="total_money"
+                placeholder="total_money"
+                name="total_money"
+                [(ngModel)]="summoneyEdit.total_money"
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div align="center">
+              <button
+                type="submit"
+                class="btn btn-warning"
+                (click)="submitEditSummoney()"
+              >
+                บันทึก
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

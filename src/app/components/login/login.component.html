@@ -1,0 +1,49 @@
+
+ <div class="container">
+
+  <div class="xxxx">
+   
+  <div class="sidenav">
+    <div class="login-main-text">
+      <i class="glyphicon glyphicon-piggy-bank" style='font-size:60px'></i>
+      <h2>
+        <b>
+        <p style="color:rgb(161, 137, 0)">
+        ธนาคาร โรงเรียน
+      </p>
+    </b>
+      </h2>
+      <h4 style="color:rgb(161, 137, 0)">Login</h4>
+    </div>
+  </div>
+  <div class="main">
+    <div class="login-form">
+      <div class="form-group">
+        <label style="color:rgb(161, 137, 0)">กรอกอีเมลล์</label>
+        <input
+          [(ngModel)]="username"
+          type="text"
+          class="form-control"
+          placeholder="กรอกอีเมลล์"
+        />
+      </div>
+      <div class="form-group">
+        <label style="color:rgb(161, 137, 0)">กรอกรหัสผ่าน</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          class="form-control"
+          placeholder="กรอกรหัสผ่าน"
+        />
+      </div>
+      <button type="submit" (click)="login()" class="btn btn-black float-right btn btn-warning" style="color:rgb(0, 0, 0)" >
+        Login
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+

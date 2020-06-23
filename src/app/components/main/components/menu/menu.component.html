@@ -1,0 +1,91 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <br />
+    <br />
+    <!-- ----------------------------------------------------------->
+    <ul class="sidebar-menu" data-widget="tree">
+      <!-- ----------------------------------------------------------->
+      <li class="active treeview menu-open">
+        <a routerLink="/main/dashboard">
+          <i class="fa fa-dashboard"></i><span>Dashboard</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+      </li>
+      <!-- ----------------------------------------------------------->
+  
+      <!-- ----------------------------------------------------------->
+      <li
+        class="active treeview menu-open"
+        *ngFor="let manageList of manageStudnetMenuList"
+      >
+        <a [routerLink]="manageList.link">
+          <i class="fa fa-user"></i> <span>{{ manageList.title }}</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+      </li>
+
+      <!-- ---------------------------------------------------------->
+   
+      <!-- ----------------------------------------------------------->
+      <li class="active treeview menu-open">
+        <a routerLink="/main/view-list-deposits">
+          <i class="fa fa-dollar"></i> <span>ดูรายการฝาก</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+      </li>
+
+      <li class="active treeview menu-open">
+        <a routerLink="/main/view-list-withdraws">
+          <i class="fa fa-dollar"></i> <span>ดูรายการถอน</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+      </li>
+      <!-- ----------------------------------------------------------->
+  
+      <!-- ----------------------------------------------------------->
+      <li
+        class="active treeview menu-open"
+        *ngFor="let withdrawList of withdrawStudentMenuList"
+      >
+        <a [routerLink]="withdrawList.link">
+          <i class="fa fa-dollar"></i> <span>{{ withdrawList.title }}</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+      </li>
+   
+      <!-- ----------------------------------------------------------->
+      <ng-container *ngIf="authority === 'ADMIN'">
+        <li class="active treeview menu-open">
+          <a routerLink="/main/list-teachers">
+            <i class="fa fa-dollar"></i> <span>จัดการข้อมูลครู</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
+        <!-- ----------------------------------------------------------->
+        <li class="active treeview menu-open">
+          <a routerLink="/main/list-money-sum">
+            <i class="fa fa-dollar"></i> <span>จัดการเงินรวม</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+        </li>
+      </ng-container>
+      <!-- ----------------------------------------------------------->
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

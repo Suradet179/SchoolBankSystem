@@ -1,0 +1,148 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="row">
+      <div class="col-lg-4 col-xs-6">
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <p>ประถมศึกษาปีที่ 1</p>
+            <h3>
+              <span style="font-size: 40px;">{{ p1 }} บาท </span>
+            </h3>
+          </div>
+          <a href="/main/view-lits-student1" class="small-box-footer"
+            >More info <i class="fa fa-bitcoin"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-4 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <p>ประถมศึกษาปีที่ 2</p>
+            <h3>
+              <span style="font-size: 40px;">{{ p2 }} บาท</span>
+            </h3>
+          </div>
+          <a href="/main/view-lits-student2" class="small-box-footer"
+            >More info <i class="fa fa-bitcoin"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-4 col-xs-6">
+        <!-- small box -->
+
+        <div class="small-box bg-purple">
+          <div class="inner">
+            <p>ประถมศึกษาปีที่ 3</p>
+            <h3>
+              <span style="font-size: 40px;">{{ p3 }} บาท</span>
+            </h3>
+          </div>
+          <a href="/main/view-lits-student3" class="small-box-footer"
+            >More info <i class="fa fa-bitcoin"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-4 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-black">
+          <div class="inner">
+            <p>ประถมศึกษาปีที่ 4</p>
+            <h3>
+              <span style="font-size: 40px;">{{ p4 }} บาท</span>
+            </h3>
+          </div>
+          <a href="/main/view-lits-student4" class="small-box-footer"
+            >More info <i class="fa fa-bitcoin"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <p>ประถมศึกษาปีที่ 5</p>
+            <h3>
+              <span style="font-size: 40px;">{{ p5 }} บาท</span>
+            </h3>
+          </div>
+          <a href="/main/view-lits-student5" class="small-box-footer"
+            >More info <i class="fa fa-bitcoin"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <p>ประถมศึกษาปีที่ 6</p>
+            <h3>
+              <span style="font-size: 40px;">{{ p6 }} บาท</span>
+            </h3>
+          </div>
+          <a href="/main/view-lits-student6" class="small-box-footer"
+            >More info <i class="fa fa-bitcoin"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="box box-info">
+          <h3 class="box-title">
+            <b
+              ><p class="text-info">
+                &nbsp;&nbsp;&nbsp;&nbsp; กราฟแสดงยอดเงิน
+              </p></b
+            >
+          </h3>
+          <div class="chart-wrapper">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+

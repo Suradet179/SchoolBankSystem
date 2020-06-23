@@ -1,0 +1,242 @@
+
+  <div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-8">
+                <div class="box box-info">
+
+                    <h3 class="box-title"><b><p class="text-info">&nbsp;&nbsp;&nbsp;&nbsp;รายชื่อนักเรียน ประถมศึกษาปีที่ 4</p></b></h3>
+                        <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th style="width: 100px;"><p class="text-info" ><b>รหัสนักเรียน</b></p></th>  
+                                    <th style="width: 80px;"><p class="text-info"><b>คำนำหน้า</b></p></th>
+                                    <th style="width: 200px;"><p class="text-info"><b>ชื่อ</b></p></th>
+                                    <th style="width: 80px;"><p class="text-info"><b>ยอดเงิน</b></p></th>
+                                    <th></th>
+                                    <th></th>
+                            
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let student of dataStudent'>
+                                    <td>{{student.StudentData.sid}}</td>
+                                    <td>{{student.StudentData.prefix}}</td>   
+                                    <td>{{student.StudentData.fname}}&nbsp;&nbsp;&nbsp;&nbsp;{{student.StudentData.lname}}</td>
+                                    <td>{{student.StudentData.money}}</td>  
+                                    <td><a role="button" class="btn btn-success text-white" data-toggle="modal" data-target="#DepositModelId" (click)="studentdata(student.StudentData.sid)">ฝาก</a></td>
+                                    <td><a role="button" class="btn btn-danger text-white" data-toggle="modal" data-target="#WithdrawModelId" (click)="WithdrawMoney(student.StudentData.sid)" >ถอน</a></td>    
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>   
+
+
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+ <!---------------------- Modal ฝากเงิน -------------------------- -->
+ <div class="modal fade" id="DepositModelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h3 class="modal-title"><b><p class="text-success">ฝากเงินนักเรียน</p></b></h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                     <!-- จำนวนตรั้งที่ฝาก -->
+                     <div class="form-group row">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-md-4">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ฝากครั้งที่
+                            <input type="text" class="form-control" id="count" placeholder="ฝากครั้งที่" name="count" [(ngModel)]="depositData.count">
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                    </div>  
+                    <div class="form-group row">
+
+                        <div class="col-sm-4">
+                        </div>
+
+                         <!-- รหัสนักเรียน -->
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="docsss" name="docsss" placeholder="รหัสนักเรียน" [(ngModel)]="depositData.sid">
+                        </div>
+
+                         <!-- รุ่น-->
+                        <div class="col-sm-4">
+                            <input type="hidden"class="form-control" id="collections" placeholder="นักเรียนรุ่นที่" name="collections" [(ngModel)]="depositData.generation">
+                        </div>
+                    </div>
+
+                     <!-- ชื่อ -->
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="prefix" name="prefix" placeholder="คำนำหน้า" [(ngModel)]="depositData.prefix">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="fname" name="fname" placeholder="ชื่อ" [(ngModel)]="depositData.fname">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="lname" name="lname" placeholder="นามสกุล" [(ngModel)]="depositData.lname">
+                        </div>
+                    </div>
+
+                     <!-- ระดับชั้น -->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="hidden" class="form-control" id="primary" placeholder="รหัสครู" name="primary"  [(ngModel)]="depositData.primary">
+                        </div>
+                    </div>
+
+                     <!-- จำนวนเงินฝาก -->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="deposit" placeholder="กรอกจำนวนเงินฝาก" name="deposit" [(ngModel)]="depositData.money">
+                        </div>
+                    </div>
+
+                     <!-- รหัสครู -->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="hidden" class="form-control" id="tid" placeholder="รหัสครู" name="tid" [(ngModel)]="depositData.tid">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div align="center">
+                            <button type="submit" class="btn btn-success" (click)="submitDeposit()">บันทึก</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+ <!---------------------- Modal ถอนเงิน -------------------------- -->
+ <div class="modal fade" id="WithdrawModelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h3 class="modal-title"><b><p class="text-danger">ถอนเงินนักเรียน</p></b></h3>
+            </div>
+            <div class="modal-body">
+                <form>
+                     <!-- จำนวนตรั้งที่ถอน -->
+                     <div class="form-group row">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-md-4">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ถอนครั้งที่
+                            <input type="text" class="form-control" id="count" placeholder="ถอนครั้งที่" name="count" [(ngModel)]="withdrawData.count">
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-4">
+                        </div>
+
+                         <!-- รหัสนักเรียน -->
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="docsss" name="docsss" placeholder="รหัสนักเรียน" [(ngModel)]="withdrawData.sid">
+                        </div>
+
+                         <!-- รุ่น-->
+                        <div class="col-sm-4">
+                            <input type="hidden"class="form-control" id="collections" placeholder="นักเรียนรุ่นที่" name="collections" [(ngModel)]="withdrawData.generation">
+                        </div>
+                    </div>
+
+                     <!-- ชื่อ -->
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="prefix" name="prefix" placeholder="คำนำหน้า" [(ngModel)]="withdrawData.prefix">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="fname" name="fname" placeholder="ชื่อ" [(ngModel)]="withdrawData.fname">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="lname" name="lname" placeholder="นามสกุล" [(ngModel)]="withdrawData.lname">
+                        </div>
+                    </div>
+
+                     <!-- ระดับชั้น -->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="hidden" class="form-control" id="primary" placeholder="รหัสครู" name="primary"  [(ngModel)]="withdrawData.primary">
+                        </div>
+                    </div>
+
+                     <!-- จำนวนเงินฝาก -->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="deposit" placeholder="กรอกจำนวนเงินถอน" name="deposit" [(ngModel)]="withdrawData.money">
+                        </div>
+                    </div>
+
+                     <!-- รหัสครู -->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="hidden" class="form-control" id="tid" placeholder="รหัสครู" name="tid" [(ngModel)]="withdrawData.tid">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div align="center">
+                            <button type="submit" class="btn btn-danger" (click)="submitWithdraw()">บันทึก</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

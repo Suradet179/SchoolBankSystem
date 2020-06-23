@@ -1,0 +1,376 @@
+
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-8">
+                <div class="box box-info">
+
+                    <h3 class="box-title"><b><p class="text-info">&nbsp;&nbsp;&nbsp;&nbsp;รายชื่อนักเรียน ประถมศึกษาปีที่ 4</p></b></h3>
+                        <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th style="width: 100px;"><p class="text-info"><b>รหัสนักเรียน</b></p></th>  
+                                    <th style="width: 80px;"><p class="text-info"><b>คำนำหน้า</b></p></th>
+                                    <th style="width: 200px;"><p class="text-info"><b>ชื่อ</b></p></th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let student of dataStudent'>
+                                    <td>{{student.StudentData.sid}}</td>
+                                    <td>{{student.StudentData.prefix}}</td>   
+                                    <td>{{student.StudentData.fname}}&nbsp;&nbsp;&nbsp;&nbsp;{{student.StudentData.lname}}</td>
+                                    
+                                  
+                                    <td style="width: 300px;">
+                                        <a role="button" class="btn btn-info text-white" (click)="detailStudent(student.StudentData.sid)"  data-toggle="modal" data-target="#modelDetailStudent" >ข้อมูลนักเรียน</a>&nbsp;  
+                                        <a role="button" class="btn btn-warning text-white" (click)="editStudent(student.StudentData.sid)" data-toggle="modal" data-target="#modelEdit" >แก้ไข</a>&nbsp;  
+                                        <a role="button" class="btn btn-danger text-white"(click)="deleteStudent(student.StudentData.sid)" >ลบ</a>     
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>   
+
+            <div class="col-md-3">
+                <a role="button" class="btn btn-success text-white" data-toggle="modal" data-target="#modelAddStudent">เพิ่มข้อมูลนักเรียน</a>
+            </div>
+
+
+ 
+
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+ <!---------------------- Modal เพิ่มข้อมูลนักเรียน -------------------------- -->
+ <div class="modal fade" id="modelAddStudent" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+           <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title"><b><p class="text-success">เพิ่มข้อมูลนักเรียน</p></b></h3>
+           </div>
+             <div class="modal-body">
+                <form>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="collections" placeholder="นักเรียนรุ่นที่" name="collections" [(ngModel)]="studentAdd.collections">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="docsss" name="docsss" placeholder="รหัสนักเรียน" [(ngModel)]="studentAdd.docsss">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <div class="form-control">
+                               <div class="radio">
+                                    <label>
+                                        <input type="radio"
+                                            id="prefix"
+                                            value="เด็กชาย"
+                                            checked
+                                            name="prefix"
+                                            [(ngModel)]="studentAdd.prefix">
+                                        เด็กชาย
+                                    </label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label>
+                                        <input type="radio"
+                                            id="prefix"
+                                            value="เด็กหญิง"
+                                            name="prefix"
+                                            [(ngModel)]="studentAdd.prefix">
+                                        เด็กหญิง
+                                    </label>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="fname" name="fname" placeholder="ชื่อ" [(ngModel)]="studentAdd.fname">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="lname" name="lname" placeholder="นามสกุล" [(ngModel)]="studentAdd.lname">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="form-control">
+                                <label>
+                                    ระดับชั้น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select id="primary" name="primary" [(ngModel)]="studentAdd.primary">
+                                        <option value="ประถมศึกษาปีที่ 1">ประถมศึกษาปีที่ 1</option>
+                                        <option value="ประถมศึกษาปีที่ 2">ประถมศึกษาปีที่ 2</option>
+                                        <option value="ประถมศึกษาปีที่ 3">ประถมศึกษาปีที่ 3</option>
+                                        <option value="ประถมศึกษาปีที่ 4">ประถมศึกษาปีที่ 4</option>
+                                        <option value="ประถมศึกษาปีที่ 5">ประถมศึกษาปีที่ 5</option>
+                                        <option value="ประถมศึกษาปีที่ 6">ประถมศึกษาปีที่ 6</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="tid" placeholder="รหัสครู" name="tid" [(ngModel)]="studentAdd.tid">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div align="center">
+                            <button type="submit" class="btn btn-success" (click)="submitAddStudent()">บันทึก</button>
+                        </div>
+                    </div>
+
+                </form>
+             </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--    -------------------- Modal แสดงรายละเอียดข้อมูลนักเรียน --------------------------      -->
+<div class="modal fade" id="modelDetailStudent" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h3 class="modal-title"><b><p class="text-primary">ข้อมูลนักเรียน</p></b></h3>
+            </div>
+            <div class="modal-body">
+               <div class="row">
+               <div class="col-md-3"><p class="text-primary"><b>นักเรียนรุ่นที่</b></p></div>
+               <div class="col-md-9">{{generation}}</div>
+               </div>
+
+                <div class="row">
+                    <div class="col-md-3"><p class="text-primary"><b>รหัสนักเรียน</b></p></div>
+                    <div class="col-md-9">{{sid}}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3"><p class="text-primary"><b>คำนำหน้า</b></p></div>
+                    <div class="col-md-9">{{prefix}}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3"><p class="text-primary"><b>ชื่อ</b></p></div>
+                    <div class="col-md-9">{{fname}}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3"><p class="text-primary"><b>นามสกุล</b></p></div>
+                    <div class="col-md-9">{{lname}}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3"><p class="text-primary"><b>ระดับชั้น</b></p></div>
+                    <div class="col-md-9">{{primary}}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3"><p class="text-primary"><b>รหัสครูที่ปรึกษา</b></p></div>
+                    <div class="col-md-9">{{tid}}</div>
+                </div>
+
+                <div class="row" >
+                    <div class="col-md-3"><p class="text-primary" ><b>ยอดเงินคงเหลือ</b></p></div>
+                    <div class="col-md-9">{{money}} บาท</div>
+                </div>
+
+                <div class="row" >
+                    <div class="col-md-3"><p class="text-primary" ><b>ยอดฝากเงินรวม</b></p></div>
+                    <div class="col-md-9">{{deposit}} บาท</div>
+                </div>
+
+                <div class="row" >
+                    <div class="col-md-3"><p class="text-primary" ><b>ยอดถอนเงินรวม</b></p></div>
+                    <div class="col-md-9">{{withdraw}} บาท</div>
+                </div>   
+                <div class="row" >
+                    <div class="col-md-3"><p class="text-primary" ><b>จำนวนรายการฝาก</b></p></div>
+                    <div class="col-md-9">{{deposit_amount}} รายการ</div>
+                </div>
+
+                <div class="row" >
+                    <div class="col-md-3"><p class="text-primary" ><b>จำนวนรายการถอน</b></p></div>
+                    <div class="col-md-9">{{withdraw_amount}} รายการ</div>
+                </div>                            
+
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+
+
+
+ <!---------------------- Modal แก้ไขข้อมูลนักเรียน -------------------------- -->
+
+<div class="modal fade" id="modelEdit" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <h3 class="modal-title"><b><p class="text-warning">แก้ไขข้อมูลนักเรียน</p></b></h3>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="collections" placeholder="นักเรียนรุ่นที่" name="collections" [(ngModel)]="studentEdit.generation">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="docsss" name="docsss" placeholder="รหัสนักเรียน" [(ngModel)]="studentEdit.sid">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <div class="form-control">
+                               <div class="radio">
+                                    <label>
+                                        <input type="radio"
+                                            id="prefix"
+                                            value="เด็กชาย"
+                                            checked
+                                            name="prefix"
+                                            [(ngModel)]="studentEdit.prefix">
+                                        เด็กชาย
+                                    </label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label>
+                                        <input type="radio"
+                                            id="prefix"
+                                            value="เด็กหญิง"
+                                            name="prefix"
+                                            [(ngModel)]="studentEdit.prefix">
+                                        เด็กหญิง
+                                    </label>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="fname" name="fname" placeholder="ชื่อ" [(ngModel)]="studentEdit.fname">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="lname" name="lname" placeholder="นามสกุล" [(ngModel)]="studentEdit.lname">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="form-control">
+                                <label>
+                                    ระดับชั้น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <select id="primary" name="primary" [(ngModel)]="studentEdit.primary">
+                                        <option value="ประถมศึกษาปีที่ 1">ประถมศึกษาปีที่ 1</option>
+                                        <option value="ประถมศึกษาปีที่ 2">ประถมศึกษาปีที่ 2</option>
+                                        <option value="ประถมศึกษาปีที่ 3">ประถมศึกษาปีที่ 3</option>
+                                        <option value="ประถมศึกษาปีที่ 4">ประถมศึกษาปีที่ 4</option>
+                                        <option value="ประถมศึกษาปีที่ 5">ประถมศึกษาปีที่ 5</option>
+                                        <option value="ประถมศึกษาปีที่ 6">ประถมศึกษาปีที่ 6</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="tid" placeholder="รหัสครู" name="tid" [(ngModel)]="studentEdit.tid">
+                        </div>
+                    </div>
+
+                    <!-- เอาส่ง ไอดีกลับไปเพื่อบอกว่าแก้ไข doc? -->
+                    <input type="hidden" class="form-control" id="sid"  name="sid" [(ngModel)]="sid">
+                    
+
+                    <div class="form-group row">
+                        <div align="center">
+                            <button type="submit" class="btn btn-warning" (click)="submitEditStudent()">บันทึก</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!----------------------
+
+     [(ngModel)]="dataStudentAdd.student_prefix"
+     [(ngModel)]="dataStudentAdd.student_fname"
+     [(ngModel)]="dataStudentAdd.student_lname"
+     [(ngModel)]="dataStudentAdd.student_primary"
+     [(ngModel)]="dataStudentAdd.student_room"
+     [(ngModel)]="dataStudentAdd.student_id"
+     [(ngModel)]="dataStudentAdd.teacher_id"
+    -------------------------- -->

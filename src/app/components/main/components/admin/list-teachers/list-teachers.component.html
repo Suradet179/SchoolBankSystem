@@ -1,0 +1,487 @@
+<div class="content-wrapper">
+  <section class="content">
+    <div class="row">
+      <div class="col-md-1"></div>
+
+      <div class="col-md-8">
+        <div class="box box-info">
+          <div align="center">
+            <h3 class="box-title">
+              <b
+                ><p class="text-info">
+                  &nbsp;&nbsp;&nbsp;&nbsp;เพิ่มข้อมูลครู
+                </p></b
+              >
+            </h3>
+          </div>
+          <form>
+            <div class="form-group row">
+              <div class="col-md-1"></div>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tid"
+                  name="tid"
+                  placeholder="รหัสครู"
+                  [(ngModel)]="teacherAdd.tid"
+                />
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-1"></div>
+
+              <div class="col-sm-10">
+                <div class="form-control">
+                  <div class="radio">
+                    <label>
+                      <input
+                        type="radio"
+                        id="prefix"
+                        value="นาย"
+                        checked
+                        name="prefix"
+                        [(ngModel)]="teacherAdd.prefix"
+                      />
+                      นาย
+                    </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>
+                      <input
+                        type="radio"
+                        id="prefix"
+                        value="นาง"
+                        name="prefix"
+                        [(ngModel)]="teacherAdd.prefix"
+                      />
+                      นาง
+                    </label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>
+                      <input
+                        type="radio"
+                        id="prefix"
+                        value="นางสาว"
+                        name="prefix"
+                        [(ngModel)]="teacherAdd.prefix"
+                      />
+                      นางสาว
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fname"
+                  name="fname"
+                  placeholder="ชื่อ"
+                  [(ngModel)]="teacherAdd.fname"
+                />
+              </div>
+
+              <div class="col-md-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lname"
+                  name="lname"
+                  placeholder="นามสกุล"
+                  [(ngModel)]="teacherAdd.lname"
+                />
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                <div class="form-control">
+                  <label>
+                    ครูประจำชั้น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <select
+                      id="primary"
+                      name="primary"
+                      [(ngModel)]="teacherAdd.primary"
+                    >
+                      <option value="ประถมศึกษาปีที่ 1"
+                        >ประถมศึกษาปีที่ 1</option
+                      >
+                      <option value="ประถมศึกษาปีที่ 2"
+                        >ประถมศึกษาปีที่ 2</option
+                      >
+                      <option value="ประถมศึกษาปีที่ 3"
+                        >ประถมศึกษาปีที่ 3</option
+                      >
+                      <option value="ประถมศึกษาปีที่ 4"
+                        >ประถมศึกษาปีที่ 4</option
+                      >
+                      <option value="ประถมศึกษาปีที่ 5"
+                        >ประถมศึกษาปีที่ 5</option
+                      >
+                      <option value="ประถมศึกษาปีที่ 6"
+                        >ประถมศึกษาปีที่ 6</option
+                      >
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="อีเมลล์"
+                  name="email"
+                  [(ngModel)]="teacherAdd.email"
+                />
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-1"></div>
+              <div class="col-md-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="password"
+                  placeholder="รหัสผ่าน"
+                  name="password"
+                  [(ngModel)]="teacherAdd.password"
+                />
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+
+            <div class="form-group row">
+              <div align="center">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  (click)="submitAddTeacher()"
+                >
+                  บันทึก
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="content">
+    <div class="row">
+      <div class="col-md-1"></div>
+
+      <div class="col-md-8">
+        <div class="box box-info">
+          <h3 class="box-title">
+            <b><p class="text-info">&nbsp;&nbsp;&nbsp;&nbsp;รายชื่อครู</p></b>
+          </h3>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th style="width: 15px;">
+                  <p class="text-info"><b>ลำดับ</b></p>
+                </th>
+                <th style="width: 100px;">
+                  <p class="text-info"><b>รหัสครู</b></p>
+                </th>
+                <th style="width: 200px;">
+                  <p class="text-info"><b>ชื่อ</b></p>
+                </th>
+                <th style="width: 150px;">
+                  <p class="text-info"><b>ครูประจำชั้น</b></p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let Tdata of dataTeacher; index as i">
+                <td>{{ i + 1 }}</td>
+                <td>{{ Tdata.TeacherData.tid }}</td>
+                <td>{{ Tdata.TeacherData.prefix }}&nbsp;{{ Tdata.TeacherData.fname }}&nbsp;&nbsp;{{ Tdata.TeacherData.lname }}</td>
+                <td>{{ Tdata.TeacherData.primary }}</td>
+                <td>
+                  <a
+                    role="button"
+                    class="btn btn-success text-white"
+                    (click)="detailTeacher(Tdata.TeacherData.tid)"
+                    data-toggle="modal"
+                    data-target="#detailTeachermodelId"
+                    >ข้อมูลครู</a
+                  >&nbsp;
+                  <a
+                    role="button"
+                    class="btn btn-info text-white"
+                    (click)="editTeacher(Tdata.TeacherData.tid)"
+                    data-toggle="modal"
+                    data-target="#editTeachermodelId"
+                    >แก้ไข</a
+                  >&nbsp;
+                  <a
+                    role="button"
+                    class="btn btn-danger text-white"
+                    (click)="deleteTeacher(Tdata.TeacherData.tid)"
+                    >ลบ</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- detail -->
+<div
+  class="modal fade"
+  id="detailTeachermodelId"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modelTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">
+          <b><p class="text-success">ข้อมูลครู</p></b>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-success"><b>รหัสครู</b></p>
+          </div>
+          <div class="col-md-9">{{ tid }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-success"><b>คำนำหน้า</b></p>
+          </div>
+          <div class="col-md-9">{{ prefix }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-success"><b>ชื่อ</b></p>
+          </div>
+          <div class="col-md-9">{{ fname }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-success"><b>นามสกุล</b></p>
+          </div>
+          <div class="col-md-9">{{ lname }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-success"><b>ที่ปรึกษาชั้น</b></p>
+          </div>
+          <div class="col-md-9">{{ primary }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-success"><b>อีเมลล์</b></p>
+          </div>
+          <div class="col-md-9">{{ email }}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="text-success"><b>รหัสผ่าน</b></p>
+          </div>
+          <div class="col-md-9">{{ password }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit -->
+<div
+  class="modal fade"
+  id="editTeachermodelId"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modelTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">
+          <b><p class="text-info">แก้ไขข้อมูลครู</p></b>
+        </h3>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="tid"
+                name="tid"
+                placeholder="รหัสครู"
+                [(ngModel)]="teacherEdit.tid"
+              />
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+
+            <div class="col-sm-10">
+              <div class="form-control">
+                <div class="radio">
+                  <label>
+                    <input
+                      type="radio"
+                      id="prefix"
+                      value="นาย"
+                      checked
+                      name="prefix"
+                      [(ngModel)]="teacherEdit.prefix"
+                    />
+                    นาย
+                  </label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input
+                      type="radio"
+                      id="prefix"
+                      value="นาง"
+                      name="prefix"
+                      [(ngModel)]="teacherEdit.prefix"
+                    />
+                    นาง
+                  </label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label>
+                    <input
+                      type="radio"
+                      id="prefix"
+                      value="นางสาว"
+                      name="prefix"
+                      [(ngModel)]="teacherEdit.prefix"
+                    />
+                    นางสาว
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                id="fname"
+                name="fname"
+                placeholder="ชื่อ"
+                [(ngModel)]="teacherEdit.fname"
+              />
+            </div>
+
+            <div class="col-md-5">
+              <input
+                type="text"
+                class="form-control"
+                id="lname"
+                name="lname"
+                placeholder="นามสกุล"
+                [(ngModel)]="teacherEdit.lname"
+              />
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <div class="form-control">
+                <label>
+                  ครูประจำชั้น&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <select
+                    id="primary"
+                    name="primary"
+                    [(ngModel)]="teacherEdit.primary"
+                  >
+                    <option value="ประถมศึกษาปีที่ 1">ประถมศึกษาปีที่ 1</option>
+                    <option value="ประถมศึกษาปีที่ 2">ประถมศึกษาปีที่ 2</option>
+                    <option value="ประถมศึกษาปีที่ 3">ประถมศึกษาปีที่ 3</option>
+                    <option value="ประถมศึกษาปีที่ 4">ประถมศึกษาปีที่ 4</option>
+                    <option value="ประถมศึกษาปีที่ 5">ประถมศึกษาปีที่ 5</option>
+                    <option value="ประถมศึกษาปีที่ 6">ประถมศึกษาปีที่ 6</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+
+          <div class="form-group row">
+            <div align="center">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                (click)="submitEditTeacher()"
+              >
+                บันทึก
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
